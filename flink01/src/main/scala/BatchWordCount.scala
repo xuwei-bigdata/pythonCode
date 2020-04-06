@@ -20,6 +20,7 @@ object BatchWordCount {
     // 2. 导入隐式转换
     import org.apache.flink.api.scala._
 
+
     // 3. 读取数据
     val dataPath: URL = getClass.getResource("/wc.txt")
     val data: DataSet[String] = env.readTextFile(dataPath.getPath)

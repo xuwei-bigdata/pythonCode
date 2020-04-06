@@ -15,6 +15,7 @@ object FlinkStreamingWordCount {
     val streamEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     streamEnv.setParallelism(4) //设置并行度
 
+
     // 2. 导入隐式转换
     import org.apache.flink.streaming.api.scala._
 
