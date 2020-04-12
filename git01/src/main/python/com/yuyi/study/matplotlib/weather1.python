@@ -39,8 +39,9 @@ plt.figure(num=3,figsize=(25,10),dpi=100)
 
 # 设置x轴坐标，进行对应
 _x = list(x)[::20] # 对x值设置步长
-_x_tick_labbels = ["时间,{}".format(i) for i in _x]
-plt.xticks(_x,_x_tick_labbels)
+_x_tick_labbels = ["10点{}分".format(i) for i in range(60)]
+_x_tick_labbels += ["11点{}分".format(i) for i in range(60)]
+plt.xticks(x[::5],_x_tick_labbels[::5])
 # plt.yticks(y)
 
 plt.plot(x,y)
