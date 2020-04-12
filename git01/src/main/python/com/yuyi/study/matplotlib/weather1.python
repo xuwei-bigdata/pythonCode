@@ -41,8 +41,13 @@ plt.figure(num=3,figsize=(25,10),dpi=100)
 _x = list(x)[::20] # 对x值设置步长
 _x_tick_labbels = ["10点{}分".format(i) for i in range(60)]
 _x_tick_labbels += ["11点{}分".format(i) for i in range(60)]
-plt.xticks(x[::5],_x_tick_labbels[::5])
-# plt.yticks(y)
+plt.xticks(x[::5],_x_tick_labbels[::5],rotation=90) # rotation旋转
+plt.yticks(y)
+
+# 添加描述信息和图片标题
+plt.xlabel("时间")
+plt.ylabel("温度")
+plt.title("10点到12点每分钟的温度信息")
 
 plt.plot(x,y)
 

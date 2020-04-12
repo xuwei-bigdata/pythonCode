@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import numpy as np
+
+# # 一维数组
+# print(np.array(range(10)))
+# n1 = np.array([[1, 2, 3], [5, 6, 7]])
+# print(n1.shape)
+#
+# # 三维数组
+# n2 = np.arange(24).reshape(2, 3, 4)
+# print(n2)
+#
+# # reshape重构 成二维数组
+# n3 = n2.reshape(4, 6)
+# print(n3)
+
+'''
+读取数据
+
+delimiter:指定分隔符
+skiprows:跳过前几行
+dtype:指定数据类型（默认：float）
+unpack=True:进行行转列（默认：flase）
+'''
+inPut = "E:/03git\MyCode\git01\src\main/resources\demo/2.csv"
+
+inCsv = np.loadtxt(inPut, delimiter=",", skiprows=1, dtype=str)
+inCsv2 = np.loadtxt(inPut, delimiter=",", skiprows=1, dtype=str, unpack=True)
+
+print(inCsv2)
+
+# 取第二行之后的数据
+print(inCsv[2:])
+
+# 取不连续的多行数据
+print(inCsv[[0, 2, 4]])
+
+# 取列(:, 对行不操作)
+print(inCsv[:, 0:])
+
+# 取不连续的多列
+print(inCsv[:, 1])
+
+# 取第2行第2列的值
+print(inCsv[1, 1])
+print(type(inCsv[1, 1]))
+
+# 取指定位置上的数据
+
+print(inCsv[[1, 2], [0, 1]]) # ['2' 'gh']  实际上是 (1,0) (2,1) 点的数
+
+'''
+修改
+clip:裁剪
+
+'''
+n1 = np.array(range(24)).reshape(4,6)
+print(n1.clip(10,18)) # 小于10的替换为10 大于18的替换为18
+
+print(type(n1))
+n2 = n1.astype(float) # 赋值为nan时需要做个类型转换
+n2[3,3] = np.nan
+print(n2)
+
+print(n1)
+print(n1<10)
+n1[n1<10]=3
+print(n1)
+
+b = np.nan
+print(type(b))
+
+

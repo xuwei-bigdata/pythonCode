@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import numpy as np
+from numpy import random
+
+'''
+使用numpy 生成数组
+'''
+n1 = np.array([1, 2, 3])
+print(n1)
+print(type(n1))  # <class 'numpy.ndarray'>
+
+print(np.array(range(10)))
+
+n2 = np.arange(4, 10, 2)
+print(n2)  # [4 6 8]
+print(type(n2))  # <class 'numpy.ndarray'>
+
+# dtype 查看数据类型
+print(n2.dtype)  # int32
+
+n3 = np.array(range(4, 10, 2), dtype="int64")
+print(n3.dtype)
+
+n4 = np.array([1, 0, 1, 1], dtype=bool)
+print(n4.dtype)
+
+# 调整数据类型
+n5 = n2.astype("int64")
+print(n5.dtype)
+
+# numpy中的小数
+n6 = np.array([random.random() for i in range(10)])
+print(n6)
+n8 = "%.2f"%random.random() # 取2位小数
+n7 = np.round(n6,2) # 取2位小数
+print(n7)
+print(n8)
+
+'''
+transpose 转置
+swapaxes 交换轴（0:x轴 1:y轴）
+'''
+# transpose 转置
+n9 = np.arange(24).reshape(4,6)
+n10 = n9.transpose()
+n11 = n9.swapaxes(1,0)
+print(n9)
+print("*"*100)
+print(n10)
+print("*"*100)
+print(n11)
+
