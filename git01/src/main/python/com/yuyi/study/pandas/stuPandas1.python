@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import numpy as np
+import pandas as pd
+
+'''
+Series: 数据结构 一列
+'''
+s1 = pd.Series(range(5), index=list("abcde"))  # 指定索引 （默认0,1...）
+print(s1[s1>3])
+
+people = {"id": 1, "name": "zs", "age": 18}
+s2 = pd.Series(people)
+print(s2)
+
+# 取值
+print(s2[["age", "name"]])
+
+print("*"*100)
+
+# 迭代
+print(s1.index)
+print(s2.index)
+print("values",s2.values)
+
+print(s1.where(s1>3))
+
+'''
+DataFrame:
+index:列索引
+columns：行索引
+'''
+p1 = pd.DataFrame(np.arange(24).reshape(4, 6),index=list("abcd"),columns=list("123456"))
+print(p1.shape)
+print(p1)
+
+print(p1.index)
+
