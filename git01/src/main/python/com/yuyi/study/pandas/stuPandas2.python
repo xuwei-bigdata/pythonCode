@@ -9,6 +9,10 @@ import numpy as np
 '''
 
 file = "F:/555/demo.csv"
-df = pd.read_csv(file, sep=",", header=None,names=['a','b'])
+df = pd.read_csv(file, sep=",", header=None, names=['a', 'b'])
 print(df)
-df.to_csv("F:/555/res.csv",index=0) # 不保存索引
+df.to_csv("F:/555/res.csv", index=0)  # 不保存索引
+
+# 修改列名
+df.rename(columns={'a': 'A', 'b': 'B'}, inplace=True)
+print(df)
